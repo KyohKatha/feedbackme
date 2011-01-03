@@ -1,0 +1,116 @@
+/* 
+    Document   : style
+    Created on : 18/12/2010, 18:41:22
+    Author     : Dell
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.topo{
+    background: url(imagem/backTopo.png);
+    height:184px;
+    width: 100%;
+}
+
+#logo{
+    background: url(imagem/feedbackmeSmall.png) no-repeat;
+    height: 252px;
+    width: 100%;
+    background-position: center;
+    background-position: top;
+}
+
+.logoMenu{
+    background: url(imagem/feedbackmeTitle.png) no-repeat;
+    width: 165px;
+    height: 44px;
+    margin-top: 0px;
+    float: left;
+}
+
+.logoMenu :hover{
+    background: url(imagem/feedbackmeTitle.png) no-repeat;
+}
+
+.menu{
+    background: url(imagem/backNavBar.png) repeat-x;
+    height:45px;
+    width: 100%;
+    margin-top: -12px;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    float:left;
+    padding-top: 12px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 2px dashed white;
+    height:33px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.menu ul li:hover{
+    background: url(imagem/menuHover.png);
+}
+
+.busca{
+    text-align: right;
+    padding: 4px;
+    background: url(imagem/fundoBusca.png);
+}
+
+.saudacao{
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 10px;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.conteudo{
+    text-align: center;
+}
+
+.conteudo p{
+    
+}
+
+.conteudo label{
+    margin-right: 50px;
+    text-align: left;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.envioMensagem{
+    float:left;
+    width: 50%;
+    margin-left: 15px;
+}
