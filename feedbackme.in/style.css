@@ -50,27 +50,36 @@ body{
     background: url(imagem/backNavBar.png) repeat-x;
     height:45px;
     width: 100%;
-    margin-top: -12px;
+    z-index: 0;
+    /*margin-top: -12px;*/
 }
 
 .menu ul{
     list-style: none;
+    margin: 0px;
 }
 
 .menu ul li{
     float:left;
-    padding-top: 12px;
+    padding-top: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    border-right: 2px dashed white;
-    height:33px;
+    /*border-right: 2px dashed white;*/
+    height:40px;
+    
+    
+}
+
+#home {
+    background: url(imagem/home.png) no-repeat left;
+    height: 25px;
 }
 
 .menu ul li a{
     text-decoration: none;
     color: #ffffff;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 12px;
 }
 
 .menu ul li:hover{
@@ -94,6 +103,9 @@ body{
 
 .conteudo{
     text-align: center;
+    padding: 50px;
+    padding-top:0px;
+    z-index:1;
 }
 
 .conteudo p{
@@ -107,10 +119,104 @@ body{
 
 .titulo{
     text-align: center;
+    
 }
 
 .envioMensagem{
     float:left;
     width: 50%;
     margin-left: 15px;
+}
+
+.cadastroIndex{
+    background: #d41c1c;
+    border:none;
+    color: #ffffff;
+    text-align: left;
+    float: left;
+    margin: 15px;
+}
+
+.cadastroIndex td{
+    text-align: right;
+}
+
+.cadastroIndex p{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.palavrasCitadas{
+    float:left;
+    width: 300px;
+    height: 100px;
+    border:solid 2px transparent;
+    margin: 15px;
+}
+
+.pessoasFaladas{
+    width: 300px;
+    height: 100px;
+    border:solid 2px transparent;
+    float: left;
+    margin: 15px;
+}
+
+.rodape{
+    background: url(imagem/fundoBusca.png);
+    width: 100%;
+    float: left;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    padding: 15px;
+}
+
+#login{
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+}
+
+.cadastro{
+    background: #d41c1c;
+    border:none;
+    color: #ffffff;
+    text-align: center;
+    margin: 15px;
+}
+
+.cadastro td{
+    text-align: right;
+}
+
+.cadastro p{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menuPerfil{
+    float:left;
+    width:250px;
+    height:300px;
+    margin-right: 15px;
+    border-right: 1px solid #999999;
+    margin-top:15px;
+    padding: 5px;
+}
+
+.feedbacks{
+    width: 1000px;
+    margin-top:15px;
+}
+
+.feedbackFieldset{
+    background-color: #cccccc;
+    border:none;
+}
+
+.feedbackFieldset input{
+    text-align: center;
 }

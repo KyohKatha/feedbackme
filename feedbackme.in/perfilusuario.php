@@ -27,7 +27,7 @@
     ?>
 
 
-    <body>
+     <body onload="iniciar()">
         <!--<div class="topo" >
             <p id="logo" ></p>
         </div>-->
@@ -35,25 +35,51 @@
         <div class="menu" >
             <div class="logoMenu"></div>
             <ul>
-               <li><a href="index.php" >Home</a></li>
-                <?php  if ($usuario == null) {?>
-                <li><a href="cadastro.php" >Cadastrar</a></li>
-                <li><a href="login.php" >Login</a></li>
-                <?php } else { ?>
-                <li>
-                    <a href="manutencaoUsuario.php?tipo=2" >Meu perfil</a>
+                <li><table><tr><td><img alt="home" src="imagem/home.png"/></td>
+                            <td><a href="index.php" >Home</a></td></tr></table>
                 </li>
-                <!--<li>
-                    <a href="cadastroprojeto.jsp" >Cadastrar Projeto</a>
-                </li>-->
+                <?php if ($usuario == null) {
+                ?>
+                    <li><table><tr><td><img src="imagem/cadastroIcon.png"/></td>
+                                <td> <a href="cadastro.php"> Cadastrar</a></td></tr></table>
+                    </li>
+                    <li onclick="mostrarLogin()" ondblclick="esconderLogin()"><table><tr><td><img src="imagem/loginIcon.png"/></td>
+                                <td><a href="login.php" >Login</a>
+
+                        <form id="login" style="z-index: 2; position:absolute" action="manutencaoUsuario.php" method="POST" >
+                            <table><tr><td>Email: </td><td><input type="text" id="email" name="email" /></td></tr>
+                            <tr><td>Senha: </td><td><input type="password" id="senha" name="senha" /></td></tr>
+                            <tr><td align="right" colspan="3"><input type="submit" value="login" onclick="return verificarLogin()"/></td></tr>
+                            </table>
+                            <input type="hidden" value="1" id="tipo" name="tipo" />
+                        </form>
+                        </table></li>
+
+                <?php } else {
+                ?>
+                    <li>
+                        <table><tr><td><img src="imagem/perfilIcon.png"/></td>
+                                <td> <a href="manutencaoUsuario.php?tipo=2" >Meu perfil</a></td></tr></table>
+                    </li>
+                    <!--<li>
+                        <a href="cadastroprojeto.jsp" >Cadastrar Projeto</a>
+                    </li>-->
+                    <li>
+                         <table><tr><td><img src="imagem/logoffIcon.png"/></td>
+                                <td> <a href="manutencaoUsuario.php?tipo=6" >Logoff</a></td></tr></table>
+                    </li>
+                <?php } ?>
                 <li>
-                    <a href="manutencaoUsuario.php?tipo=6" >Logoff</a>
+                    <table><tr><td><img src="imagem/contatoIcon.png"/></td>
+                            <td> <a href="contato.php"> Contato</a></td></tr></table>
                 </li>
-                <?php }?>
             </ul>
-           <div class="saudacao">Bem-vindo <?php if($usuario == null) echo("visitante!");
-                                               else echo($usuario->getNome());
-                                             ?>
+            <div class="saudacao">Bem-vindo <?php
+                if ($usuario == null)
+                    echo("visitante!");
+                else
+                    echo($usuario->getNome());
+                ?>
             </div>
         </div>
         <div class="busca" >
@@ -76,8 +102,8 @@
                     <input type="text" name="palavra2" id="palavra2" />
                     <input type="text" name="palavra3" id="palavra3" /></p>
                 <label>Deixe um feedback para <?php echo $usuarioSel->getNome() ?>!</label>
-                <p><textarea cols="40" rows="8" value="Digite um feedback para o usuário aqui." name="mensagem" id="mensagem" onfocus="limpar(this.id)" ></textarea></p>
-                <input type="checkbox" name="anonimo" id="anonimo" checked="checked" /> Postar como anônimo
+                <p><textarea cols="40" rows="8" value="Digite um feedback para o usuï¿½rio aqui." name="mensagem" id="mensagem" onfocus="limpar(this.id)" ></textarea></p>
+                <input type="checkbox" name="anonimo" id="anonimo" checked="checked" /> Postar como anï¿½nimo
                 <input type="submit" value="Enviar Mensagem" />
                 <input type="hidden" value="5" id="tipo" name="tipo" />
             </form>

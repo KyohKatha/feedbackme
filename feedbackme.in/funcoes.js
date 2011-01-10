@@ -12,7 +12,10 @@ function verificarCadastro(){
     var senha = document.getElementById("senha");
     var confSenha = document.getElementById("confSenha");
 
-
+    alert(nome.value);
+    alert(email.value);
+    alert(confEmail.value);
+    alert(senha.value);
     if(nome.value == ""){
         alert("Informe o nome");
         return false;
@@ -69,7 +72,8 @@ function verificarEmail(email){
 function verificarLogin(){
     var email = document.getElementById("email");
     var senha = document.getElementById("senha");
-
+    
+    alert(email.value);
     if(email.value == ""){
         alert("Informe o email");
         return false;
@@ -111,3 +115,20 @@ function verificarCadastroProjeto(){
 }
 
 /*FIM funcoes cadastro de projeto */
+
+/*Login index*/
+
+function mostrarLogin(){
+       document.getElementById("login").style.display = 'block';
+    
+}
+
+function esconderLogin(){
+    document.getElementById("login").style.display = 'none';
+}
+
+/* funcoes ao entrar no site */
+
+function iniciar(){
+    esconderLogin();
+}
