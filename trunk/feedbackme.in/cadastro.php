@@ -102,5 +102,6 @@
                 </form>
             </fieldset>
         </div>
+        <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>

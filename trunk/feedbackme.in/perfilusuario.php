@@ -89,30 +89,37 @@
                 <input type="hidden" value="3" id="tipo" name="tipo" />
             </form>
         </div>
-        <div class="conteudo" >
-            <div class="titulo">
-                    <img src="imagem/perfilde.png" /><h2><?php $usuarioSel->getNome() ?> - <?php $usuarioSel->getEmail() ?></h2>
-            </div>
+        
             
+            <div class="menuPerfil">
+            <img src="http://s3.amazonaws.com/profile-pic-image/other_1_big.gif" />
+            <p><strong> <?php echo $usuarioSel->getNome(); ?></strong></p>
+            <p> <?php echo $usuarioSel->getEmail(); ?> </p>
+            <br><br>
             <hr>
-            <div class="envioMensagem" >
+            <br><br>
+            </div>
+        <h1>Deixe um Feedback para <?php echo $usuarioSel->getNome() ?>! </h1>
+            <hr>
+            <fieldset class="envioMensagem" >
             <form action="manutencaoUsuario.php" method="post">
                 <label>Defina <?php echo $usuarioSel->getNome() ?> em 3 palavras!</label><p>
                     <input type="text" name="palavra1" id="palavra1" />
                     <input type="text" name="palavra2" id="palavra2" />
                     <input type="text" name="palavra3" id="palavra3" /></p>
-                <label>Deixe um feedback para <?php echo $usuarioSel->getNome() ?>!</label>
+                <label>Deixe uma mensagem para <?php echo $usuarioSel->getNome() ?>!</label>
                 <p><textarea cols="40" rows="8" value="Digite um feedback para o usu�rio aqui." name="mensagem" id="mensagem" onfocus="limpar(this.id)" ></textarea></p>
                 <input type="checkbox" name="anonimo" id="anonimo" checked="checked" /> Postar como an�nimo
                 <input type="submit" value="Enviar Mensagem" />
                 <input type="hidden" value="5" id="tipo" name="tipo" />
             </form>
-                </div>
-            
+                </fieldset>
+            <!--
             <div class="mensagem" >
             <img src="imagem/feedbacks.png"/>
-            
-               <?php 
+            -->
+               <?php
+               /*
                             $mensagens = $usuario->getMensagens();
                             for($i = 0 ; $i < count($mensagens) ; $i++){
                             
@@ -124,9 +131,12 @@
                                 //out.print("<p>Enviada por " + mensagem.getAutor());
                                 echo("</fieldset><br><br>");
                             }
+                *
+                */
                 ?>
-            </div>
+            <!--</div>-->
             
-        </div>
+        
+        <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>

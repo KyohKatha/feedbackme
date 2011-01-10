@@ -95,5 +95,6 @@
                 <input type="hidden" value="7" id="tipo" name="tipo" />
             </form>
         </div>
+        <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>
