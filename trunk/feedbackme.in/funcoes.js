@@ -51,6 +51,7 @@ function verificarCadastro(){
         return false;
     }
 
+   
     return true;
 }
 

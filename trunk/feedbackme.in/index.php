@@ -90,22 +90,29 @@ header('Content-Type: text/html; charset=utf-8');
                 <h1>Este é o Feedback Me!</h1>
             </div>
             <img alt="explicação FeedBackMe" src="imagem/explicacaov0small.png"/>
+
+            <?php if (!isset($_SESSION["usuarioLogado"])){ ?>
+
+
             <fieldset class="cadastroIndex" >
                 <p>Faça seu cadastro!</p>
-                <form action="manutencaoUsuario.php" method="post">
+                <form id="cadastroIndex" name="cadastroIndex" action="manutencaoUsuario.php" method="post">
                     <table>
+                        <input type="hidden" value="0" id="tipo" name="tipo" />
                         <tr><td>Nome(*):<td></td><td><input type="text" size="45" id="nome" name="nome" /></td></tr>
+                        <tr><td>Nome do Usuário(*):<td></td><td><input type="text" size="45" id="nomeUsuario" name="nomeUsuario" /></td></tr>
                         <tr><td>Email(*): <td></td><td><input type="text" size="45" id="email" name="email" /></td></tr>
                         <tr><td>Confirmar Email(*):<td></td><td><input type="text" size="45" id="confEmail" name="confEmail" /></td></tr>
                         <tr><td>Senha(*): <td></td><td><input type="password" size="45" id="senha" name="senha" /></td></tr>
                         <tr><td>Confirmar Senha(*): <td></td><td><input type="password" size="45" id="confSenha" name="confSenha" /></td></tr>
-                        <tr><td colspan="3"><input type="submit" value="cadastrar" size="45" onclick="return verificarCadastro()"/></td></tr>
+                        <tr><td colspan="3"><input type="submit" value="cadastrar" onclick="return verificarCadastro()" size="45" /></td></tr>
                     </table>
-                    <input type="hidden" value="0" id="tipo" name="tipo" />
+                    
                 </form>
             </fieldset>
-
-
+           <?php } else{     ?>
+            <div class="meuRanking"></div>
+          <?php } ?>
             <div class="palavrasCitadas"></div>
             <div class="pessoasFaladas"></div>
 

@@ -4,13 +4,14 @@ include_once 'Classes/usuario.php';
 include_once 'BancoDeDados/conexaoBD.php';
 include_once 'Classes/mensagem.php';
 
-class manutencaoUsuario {
+class ManutencaoUsuario {
 		
 		 public function cadastrarUsuario(){
         
-			$nvUsuario = new usuario();
+			$nvUsuario = new Usuario();
 
         	$nvUsuario->setNome($_POST["nome"]);
+                $nvUsuario->setNomeUsuario($_POST["nomeUsuario"]);
         	$nvUsuario->setEmail($_POST["email"]);
         	$nvUsuario->setSenha($_POST["senha"]);
         	
@@ -18,11 +19,10 @@ class manutencaoUsuario {
          	   $con = ConexaoBD::getInstance();
          	 
          	   if ($con->cadastrarUsuario($nvUsuario)) {
-                echo("Cadastro de usuario OK");
-                @header("Location: index.php");
+                     self::logarUsuario();
             	} else {
-                echo("Cadastro de usuario com problema");
-                @header("Location: cadastro.php");
+                $erro = base64_encode("Nome de usuário já existe, por favor, escolha outro.");
+                @header("Location: cadastro.php?msn=$erro");
             }
 
         } catch (Exception $e) {
@@ -38,15 +38,15 @@ class manutencaoUsuario {
 
         try {
             $con = ConexaoBD::getInstance();
-            $nvUsuario = $con->verificarSenhaUsuario($nvUsuario);
-            if ($nvUsuario != null) {
+            $userR = $con->verificarSenhaUsuario($nvUsuario);
+            if ($userR != null) {
                 echo("Senha Correta!!");
                 session_start();
-                $_SESSION["usuarioLogado"] = $nvUsuario;
-                @header("Location: index.php");
+                $_SESSION["usuarioLogado"] = $userR;
+                @header("Location: meuperfil.php");
             } else {
-                echo("Senha Incorreta!!");
-                @header("Location: login.php");
+                $erro = base64_encode("Login ou senha incorretos, por favor, tente novamente.");
+                @header("Location: login.php?msn=$erro");
             }
 
         } catch (Exception $e) {
@@ -132,7 +132,7 @@ class manutencaoUsuario {
             $autor = $usuarioLogado->getNome();
             $usuario->adicionarMensagem($mensagem, $autor);
         } else {
-            $autor = "An�nimo";
+            $autor = "An�nimo";
             $usuario->adicionarMensagem($mensagem, $autor);
         }
         
@@ -198,7 +198,7 @@ class manutencaoUsuario {
 			$tipo = $_POST["tipo"];
 		else
 			$tipo = $_GET["tipo"];
-		$contrl = new manutencaoUsuario();
+		$contrl = new ManutencaoUsuario();
 		switch ($tipo) {
                 case 0:
                     $contrl->cadastrarUsuario();
