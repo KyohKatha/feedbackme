@@ -5,18 +5,25 @@ include_once 'mensagem.php';
 class Usuario{
 	
     private $nome;
+    private $nomeUsuario;
     private $email;
     private $senha;
     private $mensagens;
     private $id;
-    private $nomedeusuario;
 
     public function __construct(){
         $this->mensagens = array();
     }
 
+    public function getNomeUsuario() {
+        return $this->nomeUsuario;
+    }
 
-    public function getEmail() {
+    public function setNomeUsuario($nomeUsuario) {
+        $this->nomeUsuario = $nomeUsuario;
+    }
+
+        public function getEmail() {
         return $this->email;
     }
 

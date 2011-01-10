@@ -33,8 +33,9 @@ class ConexaoBD {
 
     public function cadastrarUsuario($nvUsuario) {
         $consulta = "";
-        $consulta .= "INSERT INTO usuario VALUES (0,";
+        $consulta .= "INSERT INTO usuario (nome, nomeUsuario, email, senha) VALUES (";
         $consulta .= "'" . $nvUsuario->getNome() . "',";
+        $consulta .= "'" . $nvUsuario->getNomeUsuario() . "',";
         $consulta .= "'" . $nvUsuario->getEmail() . "',";
         $consulta .= "'" . $nvUsuario->getSenha() . "')";
         echo("consulta ==> " . $consulta);
@@ -50,6 +51,9 @@ class ConexaoBD {
         $rs = null;
         try {
             $rs = mysql_query($consulta, $this->link);
+            $total = mysql_num_rows($rs);
+            if($total == 0)
+                    return null;
             while ($int = mysql_fetch_assoc($rs)) {
                 if ($int["senha"] != $nvUsuario->getSenha()) {
                     return null;
@@ -68,8 +72,8 @@ class ConexaoBD {
 
     public function buscarMensagensUsuario($usuario) {
         $mensagens = new Mensagem();
-        //mensagens.put("Você é muito inteligente!", "José");
-        //mensagens.put("Você precisa se concentrar mais em suas tarefas.", "Anônimo");
+        //mensagens.put("Vocï¿½ ï¿½ muito inteligente!", "Josï¿½");
+        //mensagens.put("Vocï¿½ precisa se concentrar mais em suas tarefas.", "Anï¿½nimo");
 
 		$arrayMsg = array();
         $idusuario = self::consultarIdUsuario($usuario->getEmail());

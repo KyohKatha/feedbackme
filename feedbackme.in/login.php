@@ -17,7 +17,7 @@
     </head>
     <?php
     		session_start();
-    		if(isset($_SESSION["usuarioLogado"]))
+            if(isset($_SESSION["usuarioLogado"]))
              $usuario = $_SESSION["usuarioLogado"];
             else 
              $usuario = null;
@@ -99,9 +99,17 @@
 
                 </table>
                 <input type="hidden" value="1" id="tipo" name="tipo" />
+                 <?php
+             if(!empty($_GET["msn"]))
+                 echo base64_decode($_GET["msn"]);
+        ?>
             </form>
                 </fieldset>
+           
         </div>
+
+        
+
         <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>
