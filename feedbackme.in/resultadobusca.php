@@ -94,11 +94,17 @@
 
             <hr>
                <?php 
-                            for ($i = 0; $i < count($usuarios); $i++) {
-                                echo("<a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\">Nome: " . $usuarios[$i]->getNome() . " - Email: " . $usuarios[$i]->getEmail() . "</a><br/>");
+               $flag = true;
+               for ($i = 0; $i < count($usuarios); $i++) {
+                                $flag = !$flag;
+                                if($flag)
+                                    echo("<p class=\"claro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
+                                else
+                                    echo("<p class=\"escuro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
                             }
                ?>
             
         </div>
+        <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>

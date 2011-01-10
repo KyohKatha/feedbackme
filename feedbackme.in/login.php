@@ -88,17 +88,20 @@
             <div class="titulo">
                 <img src="imagem/login.png" />
             </div>
+            <fieldset class="cadastro">
             <form action="manutencaoUsuario.php" method="POST" >
+                <table align="center">
+                 <tr><td>Email: <input type="text" id="email" name="email" /></td></tr>
 
-                <p>Email: <input type="text" id="email" name="email" /></p>
+                 <tr><td>Senha: <input type="password" id="senha" name="senha" /></td></tr>
 
-                <p>Senha: <input type="password" id="senha" name="senha" /></p>
+                 <tr><td><input type="submit" value="login" onclick="return verificarLogin()"/></td></tr>
 
-                <p><input type="submit" value="login" onclick="return verificarLogin()"/></p>
-
-
+                </table>
                 <input type="hidden" value="1" id="tipo" name="tipo" />
             </form>
+                </fieldset>
         </div>
+        <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>
 </html>

@@ -123,9 +123,11 @@ body{
 }
 
 .envioMensagem{
-    float:left;
-    width: 50%;
-    margin-left: 15px;
+    background: #ecebeb;
+    border:none;
+    color: #000000;
+    text-align: center;
+    margin: 15px;
 }
 
 .cadastroIndex{
@@ -219,4 +221,14 @@ body{
 
 .feedbackFieldset input{
     text-align: center;
+}
+
+.claro{
+    background-color: #ffffff;
+    padding:5px;
+}
+
+.escuro{
+    background-color: #ecebeb;
+    padding:5px;
 }
