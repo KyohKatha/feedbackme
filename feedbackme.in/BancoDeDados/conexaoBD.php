@@ -96,7 +96,6 @@ class ConexaoBD {
             echo $e->getMessage();
             return null;
         }
-		echo $nvUsuario->getNome();
         return $nvUsuario;
     }
 
