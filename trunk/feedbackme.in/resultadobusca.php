@@ -1,6 +1,6 @@
-<?php 
-	include_once 'Classes/usuario.php';
-	header('Content-Type: text/html; charset=utf-8');
+<?php
+include_once 'Classes/usuario.php';
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,15 +14,15 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
 
-     <?php 
-    		session_start();
-            $usuarios = $_SESSION["resultadoBusca"];
-            $parametro = $_SESSION["parametro"];
-               
-    		if(isset($_SESSION["usuarioLogado"]))
-             	$usuario = $_SESSION["usuarioLogado"];
-            else 
-             $usuario = null;
+    <?php
+    session_start();
+    $usuarios = $_SESSION["resultadoBusca"];
+    $parametro = $_SESSION["parametro"];
+
+    if (isset($_SESSION["usuarioLogado"]))
+        $usuario = $_SESSION["usuarioLogado"];
+    else
+        $usuario = null;
     ?>
 
     <body onload="iniciar()">
@@ -44,13 +44,13 @@
                     <li onclick="mostrarLogin()" ondblclick="esconderLogin()"><table><tr><td><img src="imagem/loginIcon.png"/></td>
                                 <td><a href="login.php" >Login</a>
 
-                        <form id="login" style="z-index: 2; position:absolute" action="manutencaoUsuario.php" method="POST" >
-                            <table><tr><td>Email: </td><td><input type="text" id="email" name="email" /></td></tr>
-                            <tr><td>Senha: </td><td><input type="password" id="senha" name="senha" /></td></tr>
-                            <tr><td align="right" colspan="3"><input type="submit" value="login" onclick="return verificarLogin()"/></td></tr>
-                            </table>
-                            <input type="hidden" value="1" id="tipo" name="tipo" />
-                        </form>
+                                    <form id="login" style="z-index: 2; position:absolute" action="manutencaoUsuario.php" method="POST" >
+                                        <table><tr><td>Email: </td><td><input type="text" id="email" name="email" /></td></tr>
+                                            <tr><td>Senha: </td><td><input type="password" id="senha" name="senha" /></td></tr>
+                                            <tr><td align="right" colspan="3"><input type="submit" value="login" onclick="return verificarLogin()"/></td></tr>
+                                        </table>
+                                        <input type="hidden" value="1" id="tipo" name="tipo" />
+                                    </form>
                         </table></li>
 
                 <?php } else {
@@ -63,7 +63,7 @@
                         <a href="cadastroprojeto.jsp" >Cadastrar Projeto</a>
                     </li>-->
                     <li>
-                         <table><tr><td><img src="imagem/logoffIcon.png"/></td>
+                        <table><tr><td><img src="imagem/logoffIcon.png"/></td>
                                 <td> <a href="manutencaoUsuario.php?tipo=6" >Logoff</a></td></tr></table>
                     </li>
                 <?php } ?>
@@ -93,17 +93,17 @@
             </div>
 
             <hr>
-               <?php 
-               $flag = true;
-               for ($i = 0; $i < count($usuarios); $i++) {
-                                $flag = !$flag;
-                                if($flag)
-                                    echo("<p class=\"claro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
-                                else
-                                    echo("<p class=\"escuro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
-                            }
-               ?>
-            
+            <?php
+                $flag = true;
+                for ($i = 0; $i < count($usuarios); $i++) {
+                    $flag = !$flag;
+                    if ($flag)
+                        echo("<p class=\"claro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
+                    else
+                        echo("<p class=\"escuro\"><a href=\"manutencaoUsuario.php?tipo=4&i=" . $i . "\"><strong> " . $usuarios[$i]->getNome() . "</strong> - " . $usuarios[$i]->getEmail() . "</a></p>");
+                }
+            ?>
+
         </div>
         <div class="rodape" >Criado por Katharina Garcia e Renato Molina</div>
     </body>

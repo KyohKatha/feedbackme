@@ -43,6 +43,36 @@ class ConexaoBD {
         return true;
     }
 
+    public function retornarUsuario($nomeUsuario){
+        $consulta = "";
+        $consulta .= "SELECT * FROM usuario WHERE nomeUsuario = \"";
+        $consulta .= $nomeUsuario . "\"";
+
+        $nvUsuario = new Usuario();
+        try {
+            $rs = mysql_query($consulta, $this->link);
+            $total = mysql_num_rows($rs);
+            if($total == 0)
+                    return null;
+            while ($int = mysql_fetch_assoc($rs)) {
+                $nvUsuario->setNome($int["nome"]);
+                $nvUsuario->setId($int["idusuario"]);
+                $nvUsuario->setNomeUsuario($int["nomeUsuario"]);
+                if($int["foto"] == null)
+                    if($int["foto"] != null)
+                        $nvUsuario->setFoto($int["foto"]);
+                    $nvUsuario->setEmail($int["email"]);
+            }
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
+		echo $nvUsuario->getNome();
+        return $nvUsuario;
+        
+    }
+
     public function verificarSenhaUsuario($nvUsuario) {
         $consulta = "";
         $consulta .= "SELECT idusuario, nome, senha FROM usuario WHERE email = '" . $nvUsuario->getEmail() . "'";
