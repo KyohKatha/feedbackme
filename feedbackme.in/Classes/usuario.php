@@ -2,8 +2,8 @@
 
 include_once 'mensagem.php';
 
-class Usuario{
-	
+class Usuario {
+
     private $nome;
     private $nomeUsuario;
     private $email;
@@ -11,7 +11,7 @@ class Usuario{
     private $mensagens;
     private $id;
 
-    public function __construct(){
+    public function __construct() {
         $this->mensagens = array();
     }
 
@@ -23,7 +23,7 @@ class Usuario{
         $this->nomeUsuario = $nomeUsuario;
     }
 
-        public function getEmail() {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -55,7 +55,7 @@ class Usuario{
         $this->mensagens = $mensagens;
     }
 
-    public function adicionarMensagem($mensagem){
+    public function adicionarMensagem($mensagem) {
         $this->mensagens[] = $mensagem;
     }
 
@@ -66,5 +66,5 @@ class Usuario{
     public function setId($id) {
         $this->id = $id;
     }
-    
+
 }
